@@ -42,6 +42,6 @@ cp /etc/php-fpm.d/www.conf.rpmsave cp /etc/php-fpm.d/www.conf
 sed -i 's_/etc/php-fpm.d_\/etc/opt/remi/php71/php-fpm.d_g' /etc/opt/remi/php71/php-fpm.conf
 sed -i "/rm -f ${lockfile} ${pidfile}/c\rm -f ${lockfile} ${pidfile}; rm -f /tmp/php5-fpm.sock" /etc/init.d/php71-php-fpm
 
-
+#Restart required services
 /etc/init.d/php-fpm restart
 /etc/init.d/nginx restart
