@@ -1,8 +1,10 @@
 #!/bin/bash
 
 #Remove old php
-#uncomment this to remove old php
-#yum remove php*
+#only remove old php on web server
+if [[ `hostname -s | grep -i web | wc -l` == "1" ]]; then
+	yum remove php*
+fi
 
 #We need phpunit only if its devweb
 if [[ `hostname -s` == "devweb1" ]]; then 
