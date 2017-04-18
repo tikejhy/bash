@@ -1,7 +1,8 @@
 #!/bin/bash
 
 #Remove old php
-yum remove php*
+#uncomment this to remove old php
+#yum remove php*
 
 #We need phpunit only if its devweb
 if [[ `hostname -s` == "devweb1" ]]; then 
