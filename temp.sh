@@ -1,5 +1,8 @@
 #!/bin/bash
 
+#Lets stop nginx (LB checks only for port 80 TCP)
+/etc/init.d/nginx stop
+
 #Remove old php
 #only remove old php on web server
 if [[ `hostname -s | grep -i web | wc -l` == "1" ]]; then
