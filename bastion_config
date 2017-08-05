@@ -1,0 +1,11 @@
+#
+#Remote instance 10.31.1.3 and you wanted to run SSH connections through a bastion host called 54.171.235.173. 
+Host 10.31.*
+    StrictHostKeyChecking no
+    ProxyCommand ssh 54.171.235.173 -W %h:%p
+    IdentityFile ~/keys/kube-key
+
+Host 54.171.235.173
+     StrictHostKeyChecking no
+     IdentityFile ~/keys/kube-key
+     User centos
