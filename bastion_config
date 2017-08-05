@@ -9,3 +9,18 @@ Host 54.171.235.173
      StrictHostKeyChecking no
      IdentityFile ~/keys/kube-key
      User centos
+
+Host *-stg
+    #ControlMaster determines whether ssh(1) will listen for control connections and what to do about them. ControlPath is the location for the control socket used by the multiplexed sessions.
+	ControlMaster auto
+	#ControlPath /tmp/%r@%h:%p
+	ControlPath /tmp/%r@%h
+	ControlPersist 1m
+	ServerAliveInterval 30
+	StrictHostKeyChecking no
+  	PermitLocalCommand yes
+    HostName %h.mydomain.com
+	IdentityFile ~/.ssh/id_rsa
+	PubkeyAcceptedKeyTypes +ssh-dss
+	KexAlgorithms +diffie-hellman-group1-sha1
+    User tikejhya
